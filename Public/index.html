@@ -34,46 +34,43 @@
 
   <script>
     // Función para obtener los datos de las empresas por CUIT
-    async function fetchEmpresaByCUIT(cuit) {
-      try {
-        const response = await fetch(`http://localhost:3000/api/empresas/${cuit}`);
-        const empresa = await response.json();
+     async function fetchEmpresaByCUIT(cuit) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/empresas/${cuit}`);
+                const empresa = await response.json();
 
-        if (empresa) {
-          // Mostrar resultado
-          const resultadoDiv = document.getElementById('resultado');
-          resultadoDiv.innerHTML = `
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">${empresa.nombre_soc}</h5>
-                <p class="card-text">CUIT: ${empresa.cuit}</p>
-                <p class="card-text">Tipo: ${empresa.tipo}</p>
-                <p class="card-text">Fecha de Contrato: ${new Date(empresa.fecha_contrato).toLocaleDateString()}</p>
-              </div>
-            </div>
-          `;
-        } else {
-          // Mostrar mensaje de error si no se encuentra la empresa
-          const resultadoDiv = document.getElementById('resultado');
-          resultadoDiv.innerHTML = '<p class="text-danger">No se encontró la empresa con el CUIT ingresado.</p>';
+                if (empresa) {
+                    const resultadoDiv = document.getElementById('resultado');
+                    resultadoDiv.innerHTML = `
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">${empresa.nombre_soc}</h5>
+                                <p class="card-text">CUIT: ${empresa.cuit}</p>
+                                <p class="card-text">Tipo: ${empresa.tipo}</p>
+                                <p class="card-text">Fecha de Contrato: ${new Date(empresa.fecha_contrato).toLocaleDateString()}</p>
+                                <p class="card-text">Envergadura: ${empresa.envergadura ? empresa.envergadura.tipo_envergadura : 'No especificada'}</p>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    const resultadoDiv = document.getElementById('resultado');
+                    resultadoDiv.innerHTML = '<p class="text-danger">No se encontró la empresa con el CUIT ingresado.</p>';
+                }
+            } catch (error) {
+                console.error('Error al obtener los datos:', error);
+            }
         }
-      } catch (error) {
-        console.error('Error al obtener los datos:', error);
-      }
-    }
 
-    // Función para manejar el envío del formulario
-    document.getElementById('buscarEmpresaForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Evitar el envío del formulario por defecto
-      const inputCUIT = document.getElementById('inputCUIT').value.trim();
-      if (inputCUIT !== '') {
-        fetchEmpresaByCUIT(inputCUIT);
-      } else {
-        // Mostrar mensaje de error si no se ingresa un CUIT válido
-        const resultadoDiv = document.getElementById('resultado');
-        resultadoDiv.innerHTML = '<p class="text-danger">Por favor ingrese un CUIT válido.</p>';
-      }
-    });
+        document.getElementById('buscarEmpresaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const inputCUIT = document.getElementById('inputCUIT').value.trim();
+            if (inputCUIT !== '') {
+                fetchEmpresaByCUIT(inputCUIT);
+            } else {
+                const resultadoDiv = document.getElementById('resultado');
+                resultadoDiv.innerHTML = '<p class="text-danger">Por favor ingrese un CUIT válido.</p>';
+            }
+        });
 
     // Función para obtener el listado completo de empresas al cargar la página
     async function fetchEmpresas() {

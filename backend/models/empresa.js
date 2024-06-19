@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       cuit: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(13),
         allowNull: false,
       },
       fecha_contrato: {
@@ -62,6 +62,13 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
+
+  Empresa.associate = (models) => {
+    Empresa.belongsTo(models.Envergadura, {
+      foreignKey: "idEnvergadura",
+      as: "envergadura",
+    });
+  };
 
   return Empresa;
 };
