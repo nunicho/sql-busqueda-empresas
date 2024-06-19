@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const db = require("./models");
-const empresaRoutes = require("./routes/empresasRoutes");
+const db = require("./backend/models");
+const empresaRoutes = require("./backend/routes/empresasRoutes");
 
 const app = express();
 const port = 3000;
