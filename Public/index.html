@@ -53,7 +53,12 @@
                                 <p class="card-text">Banco: ${empresa.banco ? empresa.banco.nombre_banco : 'No especificada'}</p>
                                 <p class="card-text">Num. Socios: ${empresa.rrhh ? empresa.rrhh.num_socios  : 'No especificada'}</p>
                                 <p class="card-text">Num. Empleados: ${empresa.rrhh ? empresa.rrhh.num_empleados : 'No especificada'}</p>                         
-                                <p class="card-text">Asesor: ${empresa.asesor ? empresa.asesor.nombre_asesor : 'No especificada'}</p>                               
+                                <p class="card-text">Asesor: ${empresa.asesor ? empresa.asesor.nombre_asesor : 'No especificada'}</p>   
+                                
+                                
+                                
+                               <p class="card-text">DEP: ${empresa.asesor && empresa.asesor.departamento ? empresa.asesor.departamento.nombre_dep : 'No especificado'}</p>
+                                
                                 <p class="card-text">Teléfono: ${empresa.contacto.telefono ? empresa.contacto.telefono : 'No especificada'}</p>
                                 <p class="card-text">Email: ${empresa.contacto.email ? empresa.contacto.email : 'No especificada'}</p>
                                 <p class="card-text">Web: ${empresa.contacto.web ? empresa.contacto.web : 'No especificada'}</p>

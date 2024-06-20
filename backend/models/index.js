@@ -27,11 +27,13 @@ db.Programa = require("./programa")(sequelize, DataTypes);
 db.Ratio = require("./ratio")(sequelize, DataTypes);
 db.Localizacion = require("./localizacion")(sequelize, DataTypes);
 
+db.Dep = require("./dep")(sequelize, DataTypes);
 
 
 
 // Define las asociaciones si es necesario
 db.Empresa.associate(db);
+db.Asesor.associate(db);
 
 
 

@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       idDep: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
     },
     {
@@ -20,5 +21,13 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
+
+  Asesor.associate = (models) => {
+    Asesor.belongsTo(models.Dep, {
+      foreignKey: "idDep",
+      as: "departamento",
+    });
+  };
+
   return Asesor;
 };
