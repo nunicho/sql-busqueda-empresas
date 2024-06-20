@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../util/database"); // asegúrate de tener una configuración adecuada para la conexión a la base de datos
-
-const Rrhh = sequelize.define("rrhh", {
+module.exports = (sequelize, DataTypes) => {
+const Rrhh = sequelize.define(
+  "Rrhh",
+ {
   idRrhh: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -16,5 +16,9 @@ const Rrhh = sequelize.define("rrhh", {
     allowNull: true,
   },
 });
+return Rrhh;
 
-module.exports = Rrhh;
+}
+
+
+
