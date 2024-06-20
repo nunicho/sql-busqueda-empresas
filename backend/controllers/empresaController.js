@@ -29,6 +29,13 @@ const getEmpresaByCUIT = async (req, res) => {
           model: db.Rubro, // Incluye el modelo Rubro
           as: "rubro", // Alias con el que se asociará en la respuesta JSON
           attributes: ["actividad"], // Atributos del rubro que deseas incluir en la respuesta
+          include: [
+            {
+              model: db.Sector, // Incluye el modelo Sector asociado al Rubro
+              as: "sector",
+              attributes: ["nombre_sector"], // Atributos del sector que deseas incluir en la respuesta
+            },
+          ],
         },
         {
           model: db.Banco, // Incluye el modelo Banco
@@ -66,6 +73,18 @@ const getEmpresaByCUIT = async (req, res) => {
           model: db.Programa,
           as: "programa",
           attributes: ["nombre_programa", "descripcion", "legajo", "monto"],
+          include: [
+            {
+              model: db.Linea,
+              as: "linea",
+              attributes: ["nombre_linea"],
+            },
+            {
+              model: db.Estado,
+              as: "estado",
+              attributes: ["nombre_estado"],
+            },
+          ],
         },
         {
           model: db.Ratio,

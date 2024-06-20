@@ -21,6 +21,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  Rubro.associate = (models) => {
+    Rubro.belongsTo(models.Sector, {
+      foreignKey: "idSector",
+      as: "sector",
+    });
+  };
 
   return Rubro;
 };

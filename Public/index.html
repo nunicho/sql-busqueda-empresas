@@ -50,15 +50,12 @@
                                 <p class="card-text">Fecha de Contrato: ${new Date(empresa.fecha_contrato).toLocaleDateString()}</p>
                                 <p class="card-text">Envergadura: ${empresa.envergadura ? empresa.envergadura.tipo_envergadura : 'No especificada'}</p>
                                 <p class="card-text">Rubro: ${empresa.rubro ? empresa.rubro.actividad : 'No especificada'}</p>
+                                <p class="card-text">Sector: ${empresa.rubro && empresa.rubro.sector ? empresa.rubro.sector.nombre_sector : 'No especificado'}</p>
                                 <p class="card-text">Banco: ${empresa.banco ? empresa.banco.nombre_banco : 'No especificada'}</p>
                                 <p class="card-text">Num. Socios: ${empresa.rrhh ? empresa.rrhh.num_socios  : 'No especificada'}</p>
                                 <p class="card-text">Num. Empleados: ${empresa.rrhh ? empresa.rrhh.num_empleados : 'No especificada'}</p>                         
-                                <p class="card-text">Asesor: ${empresa.asesor ? empresa.asesor.nombre_asesor : 'No especificada'}</p>   
-                                
-                                
-                                
-                               <p class="card-text">DEP: ${empresa.asesor && empresa.asesor.departamento ? empresa.asesor.departamento.nombre_dep : 'No especificado'}</p>
-                                
+                                <p class="card-text">Asesor: ${empresa.asesor ? empresa.asesor.nombre_asesor : 'No especificada'}</p>
+                                <p class="card-text">DEP: ${empresa.asesor && empresa.asesor.departamento ? empresa.asesor.departamento.nombre_dep : 'No especificado'}</p>
                                 <p class="card-text">Teléfono: ${empresa.contacto.telefono ? empresa.contacto.telefono : 'No especificada'}</p>
                                 <p class="card-text">Email: ${empresa.contacto.email ? empresa.contacto.email : 'No especificada'}</p>
                                 <p class="card-text">Web: ${empresa.contacto.web ? empresa.contacto.web : 'No especificada'}</p>
@@ -66,6 +63,10 @@
                                 <p class="card-text">Representante - DNI: ${empresa.representante.dni? empresa.representante.dni : 'No especificada'}</p>
                                 <p class="card-text">Representante - Profesión: ${empresa.representante.profesion? empresa.representante.profesion : 'No especificada'}</p>
                                 <p class="card-text">Nombre programa: ${empresa.programa.nombre_programa? empresa.programa.nombre_programa : 'No especificada'}</p>
+
+                               <p class="card-text">Línea: ${empresa.programa.linea && empresa.programa.linea.nombre_linea ? empresa.programa.linea.nombre_linea : 'No especificada'}</p>
+                               <p class="card-text">Estado: ${empresa.programa.estado && empresa.programa.estado.nombre_estado ? empresa.programa.estado.nombre_estado : 'No especificado'}</p>
+
                                 <p class="card-text">Descripcion: ${empresa.programa.descripcion? empresa.programa.descripcion : 'No especificada'}</p>
                                 <p class="card-text">Legajo: ${empresa.programa.legajo? empresa.programa.legajo : 'No especificada'}</p>
                                 <p class="card-text">Monto: PESOS ${empresa.programa.monto? empresa.programa.monto : 'No especificada'}</p>
@@ -74,7 +75,6 @@
                                 <p class="card-text">ROA: ${empresa.ratio.roa? empresa.ratio.roa : 'No especificada'}</p>
                                 <p class="card-text">ROE: ${empresa.ratio.roe? empresa.ratio.roe : 'No especificada'}</p>
                                 <p class="card-text">Endeudamiento: ${empresa.ratio.endeudamiento? empresa.ratio.endeudamiento : 'No especificada'}</p>
-
                                 <p class="card-text">Calle: ${empresa.localizacion.nombre_calle? empresa.localizacion.nombre_calle : 'No especificada'}</p>
                                 <p class="card-text">N°: ${empresa.localizacion.numeracion_calle? empresa.localizacion.numeracion_calle : 'No especificada'}</p>
                                

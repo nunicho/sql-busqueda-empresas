@@ -32,18 +32,17 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
+Programa.associate = (models) => {
+  Programa.belongsTo(models.Linea, {
+    foreignKey: "idLinea",
+    as: "linea",
+  });
 
-  Programa.associate = (models) => {
-    Programa.belongsTo(models.Linea, {
-      foreignKey: "idLinea",
-      as: "linea",
-    });
-
-    Programa.belongsTo(models.Estado, {
-      foreignKey: "idEstado",
-      as: "estado",
-    });
-  };
+  Programa.belongsTo(models.Estado, {
+    foreignKey: "idEstado",
+    as: "estado",
+  });
+};
 
   return Programa;
 };

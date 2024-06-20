@@ -28,13 +28,15 @@ db.Ratio = require("./ratio")(sequelize, DataTypes);
 db.Localizacion = require("./localizacion")(sequelize, DataTypes);
 
 db.Dep = require("./dep")(sequelize, DataTypes);
-
-
+db.Sector = require("./sector")(sequelize, DataTypes); // Importa y define el modelo Sector
+db.Linea = require("./linea")(sequelize, DataTypes); 
+db.Estado = require("./estado")(sequelize, DataTypes); 
 
 // Define las asociaciones si es necesario
 db.Empresa.associate(db);
 db.Asesor.associate(db);
-
+db.Rubro.associate(db);
+db.Programa.associate(db);
 
 
 module.exports = db;
