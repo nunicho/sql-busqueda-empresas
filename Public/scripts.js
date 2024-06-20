@@ -197,3 +197,31 @@ document
   .addEventListener("reset", function (event) {
     document.getElementById("resultado").innerHTML = "";
   });
+
+// Script para obtener todas las empresas
+document
+  .getElementById("btnTodasEmpresas")
+  .addEventListener("click", async function () {
+    try {
+      const response = await fetch("http://localhost:3000/api/empresas");
+      const empresas = await response.json();
+
+      // Mostrar las empresas en el div de resultados
+      if (empresas.length > 0) {
+        let html = "<h3>Todas las empresas</h3>";
+        html += "<ul>";
+        empresas.forEach((empresa) => {
+          html += `<li>${empresa.nombre_soc} - CUIT: ${empresa.cuit}</li>`;
+        });
+        html += "</ul>";
+        document.getElementById("resultado").innerHTML = html;
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "<p>No se encontraron empresas.</p>";
+      }
+    } catch (error) {
+      console.error("Error al obtener las empresas:", error);
+      document.getElementById("resultado").innerHTML =
+        "<p>Ocurrió un error al cargar las empresas.</p>";
+    }
+  });
