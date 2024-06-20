@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../utils/sequelize");
 const Empresa = db.Empresa;
 const { Op } = require("sequelize");
 
