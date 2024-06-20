@@ -68,6 +68,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "idEnvergadura",
       as: "envergadura",
     });
+
+    Empresa.belongsTo(models.Rubro, {
+      foreignKey: "idRubro",
+      as: "rubro",
+    });
   };
 
   return Empresa;

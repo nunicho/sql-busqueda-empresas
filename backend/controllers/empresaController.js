@@ -25,6 +25,11 @@ const getEmpresas = async (req, res) => {
           as: "envergadura",
           attributes: ["tipo_envergadura"],
         },
+        {
+          model: db.Rubro, // Incluye el modelo Rubro
+          as: "rubro", // Alias con el que se asociará en la respuesta JSON
+          attributes: ["actividad"], // Atributos del rubro que deseas incluir en la respuesta
+        },
       ],
     });
 

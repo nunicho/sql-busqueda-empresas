@@ -17,8 +17,10 @@ db.sequelize = sequelize;
 // Importa y define los modelos
 db.Empresa = require("./empresa")(sequelize, DataTypes);
 db.Envergadura = require("./envergadura")(sequelize, DataTypes);
+db.Rubro = require("./rubro")(sequelize, DataTypes); // Importa el modelo Rubro
 
 // Define las asociaciones si es necesario
 db.Empresa.associate(db);
+
 
 module.exports = db;
