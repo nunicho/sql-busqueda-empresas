@@ -31,12 +31,17 @@ db.Dep = require("./dep")(sequelize, DataTypes);
 db.Sector = require("./sector")(sequelize, DataTypes); // Importa y define el modelo Sector
 db.Linea = require("./linea")(sequelize, DataTypes); 
 db.Estado = require("./estado")(sequelize, DataTypes); 
+db.Ciudad = require("./ciudad")(sequelize, DataTypes); // Importa y define el modelo Ciudad
+db.Provincia = require("./provincia")(sequelize, DataTypes); // Importa y define el modelo Provincia
+db.Pais = require("./pais")(sequelize, DataTypes); // Importa y define el modelo Pais
+
 
 // Define las asociaciones si es necesario
 db.Empresa.associate(db);
 db.Asesor.associate(db);
 db.Rubro.associate(db);
 db.Programa.associate(db);
+db.Localizacion.associate(db);
 
 
 module.exports = db;

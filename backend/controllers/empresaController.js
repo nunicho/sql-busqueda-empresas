@@ -95,6 +95,23 @@ const getEmpresaByCUIT = async (req, res) => {
           model: db.Localizacion,
           as: "localizacion",
           attributes: ["nombre_calle", "numeracion_calle"],
+          include: [
+            {
+              model: db.Ciudad,
+              as: "ciudad",
+              attributes: ["nombre_ciudad"],
+            },
+            {
+              model: db.Provincia,
+              as: "provincia",
+              attributes: ["nombre_provincia"],
+            },
+            {
+              model: db.Pais,
+              as: "pais",
+              attributes: ["nombre_pais"],
+            },
+          ],
         },
       ],
     });
