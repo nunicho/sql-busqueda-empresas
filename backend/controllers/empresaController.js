@@ -30,6 +30,16 @@ const getEmpresas = async (req, res) => {
           as: "rubro", // Alias con el que se asociará en la respuesta JSON
           attributes: ["actividad"], // Atributos del rubro que deseas incluir en la respuesta
         },
+        {
+          model: db.Banco, // Incluye el modelo Banco
+          as: "banco", // Alias con el que se asociará en la respuesta JSON
+          attributes: ["nombre_banco"], // Atributos del banco que deseas incluir en la respuesta
+        },
+        {
+          model: db.Rrhh, // Incluye el modelo Banco
+          as: "rrhh", // Alias con el que se asociará en la respuesta JSON
+          attributes: ["num_socios", "num_empleados"], // Atributos del banco que deseas incluir en la respuesta
+        },
       ],
     });
 
