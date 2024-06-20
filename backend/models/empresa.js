@@ -84,6 +84,8 @@ module.exports = (sequelize, DataTypes) => {
        as: "rrhh",
      });
 
+  
+
   };
 
   return Empresa;

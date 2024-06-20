@@ -50,9 +50,10 @@
                                 <p class="card-text">Fecha de Contrato: ${new Date(empresa.fecha_contrato).toLocaleDateString()}</p>
                                 <p class="card-text">Envergadura: ${empresa.envergadura ? empresa.envergadura.tipo_envergadura : 'No especificada'}</p>
                                 <p class="card-text">Rubro: ${empresa.rubro ? empresa.rubro.actividad : 'No especificada'}</p>
-                                 <p class="card-text">Banco: ${empresa.banco ? empresa.banco.nombre_banco : 'No especificada'}</p>
-                                 <p class="card-text">Candidad de socios: ${empresa.rrhh ? empresa.rrhh.num_socios : 'No especificada'}</p>
-                                  <p class="card-text">Candidad de empleados: ${empresa.rrhh ? empresa.rrhh.num_empleados : 'No especificada'}</p>
+                                <p class="card-text">Banco: ${empresa.banco ? empresa.banco.nombre_banco : 'No especificada'}</p>
+                                <p class="card-text">Num. Socios: ${empresa.rrhh ? empresa.rrhh.num_socios  : 'No especificada'}</p>
+                                <p class="card-text">Num. Empleados: ${empresa.rrhh ? empresa.rrhh.num_empleados : 'No especificada'}</p>
+                               
                             </div>
                         </div>
                     `;
