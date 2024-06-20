@@ -40,6 +40,11 @@
             as: "rrhh",
             attributes: ["num_socios", "num_empleados"],
           },
+          {
+            model: db.Asesor,
+            as: "asesor",
+            attributes: ["nombre_asesor"],          
+          },
         ],
       });
 
