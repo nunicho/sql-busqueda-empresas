@@ -22,6 +22,8 @@ db.Banco = require("./banco")(sequelize, DataTypes); // Importa y define el mode
 db.Rrhh = require("./rrhh")(sequelize, DataTypes); // Importa y define el modelo Rrhh
 db.Asesor = require("./asesor")(sequelize, DataTypes); // Importa y define el modelo Asesor
 db.Contacto = require("./contacto")(sequelize, DataTypes);
+db.Representante = require("./representante")(sequelize, DataTypes);
+db.Programa = require("./programa")(sequelize, DataTypes);
 
 
 

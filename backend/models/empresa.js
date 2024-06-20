@@ -93,6 +93,14 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "idContacto",
       as: "contacto",
     });
+    Empresa.belongsTo(models.Representante, {
+      foreignKey: "idRepresentante",
+      as: "representante",
+    });
+     Empresa.belongsTo(models.Programa, {
+       foreignKey: "idPrograma",
+       as: "programa",
+     });
   };
 
   return Empresa;

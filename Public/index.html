@@ -53,11 +53,18 @@
                                 <p class="card-text">Banco: ${empresa.banco ? empresa.banco.nombre_banco : 'No especificada'}</p>
                                 <p class="card-text">Num. Socios: ${empresa.rrhh ? empresa.rrhh.num_socios  : 'No especificada'}</p>
                                 <p class="card-text">Num. Empleados: ${empresa.rrhh ? empresa.rrhh.num_empleados : 'No especificada'}</p>                         
-                                <p class="card-text">Asesor: ${empresa.asesor ? empresa.asesor.nombre_asesor : 'No especificada'}</p>
-                               
+                                <p class="card-text">Asesor: ${empresa.asesor ? empresa.asesor.nombre_asesor : 'No especificada'}</p>                               
                                 <p class="card-text">Teléfono: ${empresa.contacto.telefono ? empresa.contacto.telefono : 'No especificada'}</p>
                                 <p class="card-text">Email: ${empresa.contacto.email ? empresa.contacto.email : 'No especificada'}</p>
                                 <p class="card-text">Web: ${empresa.contacto.web ? empresa.contacto.web : 'No especificada'}</p>
+                                <p class="card-text">Representante - Nombre: ${empresa.representante.nombre_rep? empresa.representante.nombre_rep : 'No especificada'}</p>
+                                <p class="card-text">Representante - DNI: ${empresa.representante.dni? empresa.representante.dni : 'No especificada'}</p>
+                                <p class="card-text">Representante - Profesión: ${empresa.representante.profesion? empresa.representante.profesion : 'No especificada'}</p>
+
+                                <p class="card-text">Nombre programa: ${empresa.programa.nombre_programa? empresa.programa.nombre_programa : 'No especificada'}</p>
+                                <p class="card-text">Descripcion: ${empresa.programa.descripcion? empresa.programa.descripcion : 'No especificada'}</p>
+                                <p class="card-text">Legajo: ${empresa.programa.legajo? empresa.programa.legajo : 'No especificada'}</p>
+                                <p class="card-text">Monto: PESOS ${empresa.programa.monto? empresa.programa.monto : 'No especificada'}</p>
                             </div>
                         </div>
                     `;

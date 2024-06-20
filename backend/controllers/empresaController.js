@@ -50,6 +50,17 @@
             as: "contacto",
             attributes: ["telefono", "email", "web"],
           },
+
+          {
+            model: db.Representante,
+            as: "representante",
+            attributes: ["nombre_rep", "dni", "profesion"],
+          },
+          {
+            model: db.Programa,
+            as: "programa",
+            attributes: ["nombre_programa", "descripcion", "legajo", "monto"],
+         },
         ],
       });
 
