@@ -1,36 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Busqueda por CUIT</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-      <div class="text-center my-2">
-      <img src="assets/logo.png" alt="Logo" class="logo d-inline-block align-middle">
-      <h1 class="d-inline-block align-middle">Búsqueda por CUIT</h1>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda por CUIT</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="text-center my-2">
+        <img src="assets/logo.png" alt="Logo" class="logo d-inline-block align-middle">
+        <h1 class="d-inline-block align-middle">Búsqueda por CUIT</h1>
+      </div>
+
+      <!-- Formulario de búsqueda por CUIT -->
+  <form id="buscarEmpresaForm" class="mb-4 text-center"> 
+    <div class="form-group">
+      <label for="inputCUIT">Ingrese el CUIT de la empresa:</label>
+      <input type="text" class="form-control" id="inputCUIT" placeholder="Ej. 30-12345678-9">
     </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+  </form>
 
-    <!-- Formulario de búsqueda por CUIT -->
-<form id="buscarEmpresaForm" class="mb-4 text-center"> 
-  <div class="form-group">
-    <label for="inputCUIT">Ingrese el CUIT de la empresa:</label>
-    <input type="text" class="form-control" id="inputCUIT" placeholder="Ej. 30-12345678-9">
-  </div>
-  <button type="submit" class="btn btn-primary">Buscar</button>
-  <button type="reset" class="btn btn-secondary">Reset</button>
-</form>
+      <!-- Resultados de la búsqueda -->
+      <div id="resultado" class="mt-4"></div>
 
-    <!-- Resultados de la búsqueda -->
-    <div id="resultado" class="mt-4"></div>
-
-  <script src="scripts.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <script src="scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+  </html>
