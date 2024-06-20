@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "bancos", // Nombre de la tabla en la base de datos
-      timestamps: false, // Si no tienes timestamps en la tabla
+      tableName: "bancos", 
+      timestamps: false, 
     }
   );
 

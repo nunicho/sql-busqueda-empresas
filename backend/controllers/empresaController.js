@@ -26,21 +26,21 @@ const getEmpresaByCUIT = async (req, res) => {
           attributes: ["tipo_envergadura"],
         },
         {
-          model: db.Rubro, // Incluye el modelo Rubro
-          as: "rubro", // Alias con el que se asociará en la respuesta JSON
-          attributes: ["actividad"], // Atributos del rubro que deseas incluir en la respuesta
+          model: db.Rubro, 
+          as: "rubro", 
+          attributes: ["actividad"], 
           include: [
             {
-              model: db.Sector, // Incluye el modelo Sector asociado al Rubro
+              model: db.Sector, 
               as: "sector",
-              attributes: ["nombre_sector"], // Atributos del sector que deseas incluir en la respuesta
+              attributes: ["nombre_sector"], 
             },
           ],
         },
         {
-          model: db.Banco, // Incluye el modelo Banco
-          as: "banco", // Alias con el que se asociará en la respuesta JSON
-          attributes: ["nombre_banco"], // Atributos del banco que deseas incluir en la respuesta
+          model: db.Banco, 
+          as: "banco", 
+          attributes: ["nombre_banco"], 
         },
         {
           model: db.Rrhh,
@@ -72,7 +72,7 @@ const getEmpresaByCUIT = async (req, res) => {
             {
               model: db.Pais,
               as: "pais",
-              attributes: ["nombre_pais"], // Puedes incluir más atributos del país si es necesario
+              attributes: ["nombre_pais"], 
             },
           ],
         },

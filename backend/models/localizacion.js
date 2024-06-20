@@ -31,24 +31,24 @@ module.exports = (sequelize, DataTypes) => {
 
 
   Localizacion.associate = (models) => {
-    // Asociación con la tabla Ciudad
+ 
     Localizacion.belongsTo(models.Ciudad, {
       foreignKey: "idCiudad",
       as: "ciudad",
     });
 
-    // Asociación con la tabla Provincia
+  
     Localizacion.belongsTo(models.Provincia, {
       foreignKey: "idProvincia",
       as: "provincia",
     });
 
-    // Asociación con la tabla Pais
+   
     Localizacion.belongsTo(models.Pais, {
       foreignKey: "idPais",
       as: "pais",
     });
   };
-  
+
   return Localizacion;
 };

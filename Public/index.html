@@ -3,129 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empresas</title>
+  <title>Busqueda por CUIT</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .card {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1 class="text-center my-4">Listado de Empresas</h1>
+      <div class="text-center my-2">
+      <img src="assets/logo.png" alt="Logo" class="logo d-inline-block align-middle">
+      <h1 class="d-inline-block align-middle">Búsqueda por CUIT</h1>
+    </div>
 
     <!-- Formulario de búsqueda por CUIT -->
-    <form id="buscarEmpresaForm" class="mb-4">
-      <div class="form-group">
-        <label for="inputCUIT">Ingrese el CUIT de la empresa:</label>
-        <input type="text" class="form-control" id="inputCUIT" placeholder="Ej. 30-12345678-9">
-      </div>
-      <button type="submit" class="btn btn-primary">Buscar</button>
-    </form>
+<form id="buscarEmpresaForm" class="mb-4 text-center"> 
+  <div class="form-group">
+    <label for="inputCUIT">Ingrese el CUIT de la empresa:</label>
+    <input type="text" class="form-control" id="inputCUIT" placeholder="Ej. 30-12345678-9">
+  </div>
+  <button type="submit" class="btn btn-primary">Buscar</button>
+  <button type="reset" class="btn btn-secondary">Reset</button>
+</form>
 
     <!-- Resultados de la búsqueda -->
     <div id="resultado" class="mt-4"></div>
 
-    <!-- Listado de Empresas -->
-    <h2>Listado Completo</h2>
-    <ul id="empresa-list" class="list-group"></ul>
-  </div>
-
-  <script>
-    // Función para obtener los datos de las empresas por CUIT
-     async function fetchEmpresaByCUIT(cuit) {
-            try {
-                const response = await fetch(`http://localhost:3000/api/empresas/${cuit}`);
-                const empresa = await response.json();
-
-                if (empresa) {
-                    const resultadoDiv = document.getElementById('resultado');
-                    resultadoDiv.innerHTML = `
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">${empresa.nombre_soc}</h5>
-                                <p class="card-text">CUIT: ${empresa.cuit}</p>
-                                <p class="card-text">Tipo: ${empresa.tipo}</p>
-                                <p class="card-text">Fecha de Contrato: ${new Date(empresa.fecha_contrato).toLocaleDateString()}</p>
-                                <p class="card-text">Envergadura: ${empresa.envergadura ? empresa.envergadura.tipo_envergadura : 'No especificada'}</p>
-                                <p class="card-text">Rubro: ${empresa.rubro ? empresa.rubro.actividad : 'No especificada'}</p>
-                                <p class="card-text">Sector: ${empresa.rubro && empresa.rubro.sector ? empresa.rubro.sector.nombre_sector : 'No especificado'}</p>
-                                <p class="card-text">Banco: ${empresa.banco ? empresa.banco.nombre_banco : 'No especificada'}</p>
-                                <p class="card-text">Num. Socios: ${empresa.rrhh ? empresa.rrhh.num_socios  : 'No especificada'}</p>
-                                <p class="card-text">Num. Empleados: ${empresa.rrhh ? empresa.rrhh.num_empleados : 'No especificada'}</p>                         
-                                <p class="card-text">Asesor: ${empresa.asesor ? empresa.asesor.nombre_asesor : 'No especificada'}</p>
-                                <p class="card-text">DEP: ${empresa.asesor && empresa.asesor.departamento ? empresa.asesor.departamento.nombre_dep : 'No especificado'}</p>
-                                <p class="card-text">Teléfono: ${empresa.contacto.telefono ? empresa.contacto.telefono : 'No especificada'}</p>
-                                <p class="card-text">Email: ${empresa.contacto.email ? empresa.contacto.email : 'No especificada'}</p>
-                                <p class="card-text">Web: ${empresa.contacto.web ? empresa.contacto.web : 'No especificada'}</p>
-                                <p class="card-text">Representante - Nombre: ${empresa.representante.nombre_rep? empresa.representante.nombre_rep : 'No especificada'}</p>
-                                <p class="card-text">Representante - DNI: ${empresa.representante.dni? empresa.representante.dni : 'No especificada'}</p>
-                                <p class="card-text">Representante - Profesión: ${empresa.representante.profesion? empresa.representante.profesion : 'No especificada'}</p>
-                                <p class="card-text">Representante - Nacionalidad: ${empresa.representante && empresa.representante.pais ? empresa.representante.pais.nombre_pais : 'No especificado'}</p>
-                                <p class="card-text">Nombre programa: ${empresa.programa.nombre_programa? empresa.programa.nombre_programa : 'No especificada'}</p>
-                                <p class="card-text">Línea: ${empresa.programa.linea && empresa.programa.linea.nombre_linea ? empresa.programa.linea.nombre_linea : 'No especificada'}</p>
-                                <p class="card-text">Estado: ${empresa.programa.estado && empresa.programa.estado.nombre_estado ? empresa.programa.estado.nombre_estado : 'No especificado'}</p>
-                                <p class="card-text">Descripcion: ${empresa.programa.descripcion? empresa.programa.descripcion : 'No especificada'}</p>
-                                <p class="card-text">Legajo: ${empresa.programa.legajo? empresa.programa.legajo : 'No especificada'}</p>
-                                <p class="card-text">Monto: PESOS ${empresa.programa.monto? empresa.programa.monto : 'No especificada'}</p>
-                                <p class="card-text">Patrimonio neto: ${empresa.ratio.patneto? empresa.ratio.patneto : 'No especificada'}</p>
-                                <p class="card-text">Margen: ${empresa.ratio.margen? empresa.ratio.margen : 'No especificada'}</p>
-                                <p class="card-text">ROA: ${empresa.ratio.roa? empresa.ratio.roa : 'No especificada'}</p>
-                                <p class="card-text">ROE: ${empresa.ratio.roe? empresa.ratio.roe : 'No especificada'}</p>
-                                <p class="card-text">Endeudamiento: ${empresa.ratio.endeudamiento? empresa.ratio.endeudamiento : 'No especificada'}</p>
-                                <p class="card-text">Calle: ${empresa.localizacion.nombre_calle? empresa.localizacion.nombre_calle : 'No especificada'}</p>
-                                <p class="card-text">N°: ${empresa.localizacion.numeracion_calle? empresa.localizacion.numeracion_calle : 'No especificada'}</p>
-                                <p class="card-text">Ciudad: ${empresa.localizacion.ciudad? empresa.localizacion.ciudad.nombre_ciudad: 'No especificada'}</p>
-                                <p class="card-text">Provincia: ${empresa.localizacion.provincia? empresa.localizacion.provincia.nombre_provincia: 'No especificada'}</p>
-                                <p class="card-text">País: ${empresa.localizacion.pais? empresa.localizacion.pais.nombre_pais: 'No especificada'}</p>   
-                                
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    const resultadoDiv = document.getElementById('resultado');
-                    resultadoDiv.innerHTML = '<p class="text-danger">No se encontró la empresa con el CUIT ingresado.</p>';
-                }
-            } catch (error) {
-                console.error('Error al obtener los datos:', error);
-            }
-        }
-
-        document.getElementById('buscarEmpresaForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const inputCUIT = document.getElementById('inputCUIT').value.trim();
-            if (inputCUIT !== '') {
-                fetchEmpresaByCUIT(inputCUIT);
-            } else {
-                const resultadoDiv = document.getElementById('resultado');
-                resultadoDiv.innerHTML = '<p class="text-danger">Por favor ingrese un CUIT válido.</p>';
-            }
-        });
-
-    // Función para obtener el listado completo de empresas al cargar la página
-    async function fetchEmpresas() {
-      try {
-        const response = await fetch('http://localhost:3000/api/empresas');
-        const empresas = await response.json();
-        const empresaList = document.getElementById('empresa-list');
-
-        empresas.forEach(empresa => {
-          const listItem = document.createElement('li');
-          listItem.className = 'list-group-item';
-          listItem.textContent = `Nombre: ${empresa.nombre_soc}, CUIT: ${empresa.cuit}`;
-          empresaList.appendChild(listItem);
-        });
-      } catch (error) {
-        console.error('Error al obtener los datos:', error);
-      }
-    }
-
-    // Llama a la función para obtener el listado completo de empresas cuando se carga la página
-    window.onload = function() {
-      fetchEmpresas();
-    };
-  </script>
+  <script src="scripts.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
