@@ -43,7 +43,12 @@
           {
             model: db.Asesor,
             as: "asesor",
-            attributes: ["nombre_asesor"],          
+            attributes: ["nombre_asesor"],
+          },
+          {
+            model: db.Contacto,
+            as: "contacto",
+            attributes: ["telefono", "email", "web"],
           },
         ],
       });

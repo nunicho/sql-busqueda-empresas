@@ -74,25 +74,25 @@ module.exports = (sequelize, DataTypes) => {
       as: "rubro",
     });
 
-     Empresa.belongsTo(models.Banco, {
-       foreignKey: "idBanco",
-       as: "banco",
-     });
+    Empresa.belongsTo(models.Banco, {
+      foreignKey: "idBanco",
+      as: "banco",
+    });
 
-     Empresa.belongsTo(models.Rrhh, {
-       foreignKey: "idRrhh",
-       as: "rrhh",
-     });
+    Empresa.belongsTo(models.Rrhh, {
+      foreignKey: "idRrhh",
+      as: "rrhh",
+    });
 
-        Empresa.belongsTo(models.Asesor, {
-          foreignKey: "idAsesor",
-          as: "asesor",
-        });
+    Empresa.belongsTo(models.Asesor, {
+      foreignKey: "idAsesor",
+      as: "asesor",
+    });
 
-     
-
-  
-
+    Empresa.belongsTo(models.Contacto, {
+      foreignKey: "idContacto",
+      as: "contacto",
+    });
   };
 
   return Empresa;
