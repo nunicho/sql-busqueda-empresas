@@ -27,5 +27,13 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
+
+  Representante.associate = (models) => {
+    Representante.belongsTo(models.Pais, {
+      foreignKey: "nacionalidad",
+      as: "pais",
+    });
+  };
+
   return Representante;
 };

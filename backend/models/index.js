@@ -42,6 +42,7 @@ db.Asesor.associate(db);
 db.Rubro.associate(db);
 db.Programa.associate(db);
 db.Localizacion.associate(db);
+db.Representante.associate(db);
 
 
 module.exports = db;

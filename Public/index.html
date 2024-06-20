@@ -62,6 +62,7 @@
                                 <p class="card-text">Representante - Nombre: ${empresa.representante.nombre_rep? empresa.representante.nombre_rep : 'No especificada'}</p>
                                 <p class="card-text">Representante - DNI: ${empresa.representante.dni? empresa.representante.dni : 'No especificada'}</p>
                                 <p class="card-text">Representante - Profesión: ${empresa.representante.profesion? empresa.representante.profesion : 'No especificada'}</p>
+                                <p class="card-text">Representante - Nacionalidad: ${empresa.representante && empresa.representante.pais ? empresa.representante.pais.nombre_pais : 'No especificado'}</p>
                                 <p class="card-text">Nombre programa: ${empresa.programa.nombre_programa? empresa.programa.nombre_programa : 'No especificada'}</p>
                                 <p class="card-text">Línea: ${empresa.programa.linea && empresa.programa.linea.nombre_linea ? empresa.programa.linea.nombre_linea : 'No especificada'}</p>
                                 <p class="card-text">Estado: ${empresa.programa.estado && empresa.programa.estado.nombre_estado ? empresa.programa.estado.nombre_estado : 'No especificado'}</p>

@@ -68,6 +68,13 @@ const getEmpresaByCUIT = async (req, res) => {
           model: db.Representante,
           as: "representante",
           attributes: ["nombre_rep", "dni", "profesion"],
+          include: [
+            {
+              model: db.Pais,
+              as: "pais",
+              attributes: ["nombre_pais"], // Puedes incluir más atributos del país si es necesario
+            },
+          ],
         },
         {
           model: db.Programa,
