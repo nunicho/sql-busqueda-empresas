@@ -97,10 +97,18 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "idRepresentante",
       as: "representante",
     });
-     Empresa.belongsTo(models.Programa, {
-       foreignKey: "idPrograma",
-       as: "programa",
-     });
+    Empresa.belongsTo(models.Programa, {
+      foreignKey: "idPrograma",
+      as: "programa",
+    });
+    Empresa.belongsTo(models.Ratio, {
+      foreignKey: "idRatio",
+      as: "ratio",
+    });
+        Empresa.belongsTo(models.Localizacion, {
+          foreignKey: "idLocalizacion",
+          as: "localizacion",
+        });
   };
 
   return Empresa;

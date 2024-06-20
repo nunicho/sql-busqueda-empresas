@@ -60,7 +60,17 @@
             model: db.Programa,
             as: "programa",
             attributes: ["nombre_programa", "descripcion", "legajo", "monto"],
-         },
+          },
+          {
+            model: db.Ratio,
+            as: "ratio",
+            attributes: ["patneto", "margen", "roa", "roe", "endeudamiento"],
+          },
+          {
+            model: db.Localizacion,
+            as: "localizacion",
+            attributes: ["nombre_calle", "numeracion_calle"],            
+          },
         ],
       });
 

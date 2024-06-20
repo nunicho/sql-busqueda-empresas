@@ -24,6 +24,8 @@ db.Asesor = require("./asesor")(sequelize, DataTypes); // Importa y define el mo
 db.Contacto = require("./contacto")(sequelize, DataTypes);
 db.Representante = require("./representante")(sequelize, DataTypes);
 db.Programa = require("./programa")(sequelize, DataTypes);
+db.Ratio = require("./ratio")(sequelize, DataTypes);
+db.Localizacion = require("./localizacion")(sequelize, DataTypes);
 
 
 
